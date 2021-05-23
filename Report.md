@@ -26,25 +26,14 @@ Given this information, the agent has to learn how to best select actions.  Four
 
 The task is episodic, and the environment is considered solved when the agent achieves an average score of +13 over 100 consecutive episodes.
 
-## Installing and Downloading
-
-The environment can be downloaded for MacOS, Linux and Windows from the following links:
-- Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip)
-- Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
-- Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip)
-- Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/VisualBanana_Windows_x86.zip)
-
-Once the environment is downloaded, clone this repo and move the environment into the main project directory `Deep_Q_Network/`. Then run `Navigation.py` from your IDE or command line. 
-
-The `requirements.txt` file is provided to create a virtual environment with all necessary dependencies.
 
 
-## Instructions for Running the Agent
+## Running the Agent
 
-To run the simulation, run `Navigation.py`.
-- You will first see the results for an untrained agent, taking random actions
+When running the simulation, the following are observed:
+- The results for an untrained agent, taking random actions
 - Then, a deep q-learning agent will be trained on the environment.
-- Finally, the agent's score as a function of epoch will be displayed. An example is shown below.
+- Finally, the agent's score as a function of epoch will be displayed. An example is shown below. Based on the criteria listed above, the agent solved the environment (an average score of +13 over last 100 episodes) near epoch 500.
 
 
 <p align="center">
@@ -71,6 +60,17 @@ The agent was developed and trained in the following way:
 
 - In addition, the agent uses experience replay to break harmful correlations and make repeated use of experiences. In this case the buffer holds 1e5 experience tuples and learns in batches of 64. The experience replay is also described in the `rl_agent.py` file.
 
+- The full list of hyperparameters used for learning are listed below:
+```python
+BUFFER_SIZE = int(1e5)      # size of replay buffer
+BATCH_SIZE = 64             # size of minibatches for training
+GAMMA = 0.99                # discount parameter
+TAU = 1e-3                  # update parameter for local -> target
+LR = 5e-4                   # learning rate
+UPDATE_EVERY = 4            # frequency of updates
+QNN_LAYERS = [64,64]        # size of hidden layers in q-network
+
+```
 
 ## Improvements
 
