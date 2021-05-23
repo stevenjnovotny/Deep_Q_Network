@@ -70,6 +70,10 @@ LR = 5e-4                   # learning rate
 UPDATE_EVERY = 4            # frequency of updates
 QNN_LAYERS = [64,64]        # size of hidden layers in q-network
 
+eps_start=1.0               # starting epsilon for epsilon greedy
+eps_end=0.01                # minimum value for epsilon
+eps_decay=0.995             # epsilon decay for each episode
+
 ```
 
 ## Improvements
